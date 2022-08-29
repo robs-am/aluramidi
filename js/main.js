@@ -14,9 +14,10 @@ document.querySelector('.tecla_pom').onclick = tocaSomPom;
 //nao colocamos o parenteses ao final da funcao tocaSomPom pois ja extamos a executando na função onclick
 
 
-
 function tocaSomClap () {
     document.querySelector ('.tecla_clap');
     document.querySelector('#som_tecla_clap').play()
 }
+
+document.querySelectorAll('.tecla')
 
