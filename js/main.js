@@ -1,4 +1,4 @@
-function tocaSomPom () {
+function tocaSom () {
   
 
     document.querySelector('#som_tecla_pom').play()
@@ -24,15 +24,23 @@ function tocaSomClap () {
 const listaDeTeclas = document.querySelectorAll('.tecla');
     listaDeTeclas[0].onclick = tocaSomPom;
 
+
+    //listaDeTeclas[0] acessa a tecla referente ao numero (índice) digitado dentro do parenteses
     let contador = 0;  //pode sempre receber um valor novo
 
-    //listaDeTeclas[0] acessa a tecla referente ao numero (índice) digitado dentro do parenteses,
+    
    
 
-    while(contador < 9) {
-        listaDeTeclas[0].onclick = tocaSomPom;
+    //para acessar cada indice da lista de sons indivisulamente usamos a função while
+
+    while(contador < listaDeTeclas.length) {
+        listaDeTeclas[contador].onclick = tocaSomPom; //substituimos o 0 por contador, para variar o índice e assim abranger todos os sons das teclas. também substituimos o numero 9 por listaDeTeclas.length, pois nem sempre saberemos o tamanhao de uma lista, ficando assim mais semantico
+
+        contador = contador + 1; // 0 + 1 ; segundo loop 1 +1 = 2 < 9; terceiro loop 2 + 1 = 3 <  e assim por diante
+
+        console.log(contador)
     }
-//para acessar cada indice da lista de sons indivisulamente usamos a função while
+
 
 
 
