@@ -57,6 +57,10 @@ const listaDeTeclas = document.querySelectorAll('.tecla');
             if(evento.code === 'Space') {
                 tecla.classList.add('ativa');
             }
+
+            if (evento.code === 'Enter') {
+                tecla.classList.add('ativa');
+            }
         
         
         
