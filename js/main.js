@@ -1,17 +1,12 @@
-function tocaSom (idElementoAudio) {  
-  
+function tocaSom(idElementoAudio) {
     document.querySelector(idElementoAudio).play();
 
-    
 }
 
 //idElementoAudio é um parametro. Os parâmetros são os nomes que damos a valores que uma função pode receber em sua chamada, que podem ou não ter um valor padrão. Os parâmetros de uma função são como variáveis que ficam disponíveis apenas no corpo da função.
 
-
 /* document.querySelector('.tecla_pom').onclick = tocaSom;
-
-    //onclick é um atributo e com o = definimos um valor a ele usando a classe do button correspondente a tecla. quando o onclick é executado é executado a funçao tocaSomPom
-
+//onclick é um atributo e com o = definimos um valor a ele usando a classe do button correspondente a tecla. quando o onclick é executado é executado a funçao tocaSomPom
 //nao colocamos o parenteses ao final da funcao tocaSomPom pois ja extamos a executando na função onclick
  */
 
@@ -23,68 +18,52 @@ function tocaSom (idElementoAudio) {
 
 
 const listaDeTeclas = document.querySelectorAll('.tecla');
-    //listaDeTeclas[0].onclick = tocaSomPom;
+
+//listaDeTeclas[0].onclick = tocaSomPom;
+//listaDeTeclas[0] acessa a tecla referente ao numero (índice) digitado dentro do parenteses
+let contador = 0; //pode sempre receber um valor novo
 
 
-    //listaDeTeclas[0] acessa a tecla referente ao numero (índice) digitado dentro do parenteses
-    let contador = 0;  //pode sempre receber um valor novo
-
-    
-   
-
-    //para acessar cada indice da lista de sons individulamente usamos a função while
-    //while(contador < listaDeTeclas.length)
-     
-    //trocamos a funçao while pela for each
-    for (let contador = 0; contador < listaDeTeclas.length; contador++) {
-
-        const tecla = listaDeTeclas[contador];
-        const instrumento = tecla.classList[1] // dessa maneira conseguimos definicar cada instrumento
-        //separado
-
-        //template string
-        const idAudio = `#som_${instrumento}`
-        
 
 
-        tecla.onclick = function() {
-            tocaSom(idAudio);
-        }; 
+//para acessar cada indice da lista de sons individulamente usamos a função while
+//while(contador < listaDeTeclas.length)
 
-        tecla.onkeydown = function(evento) {
+
+for (let contador = 0; contador < listaDeTeclas.length; contador++) { //trocamos a funçao while pela for each
+    const tecla = listaDeTeclas[contador];
+    const instrumento = tecla.classList[1]; // dessa maneira conseguimos definicar cada instrumento//separado
+    const idAudio = `#som_${instrumento}`; //template string
+
+
+
+    tecla.onclick = function () {
+        tocaSom(idAudio);
+    };
+
+    tecla.onkeydown = function (evento) {
+
+
+        if (evento.code === 'Space' || evento.code === 'Enter') {
             tecla.classList.add('ativa');
         }
-            if(evento.code === 'Space') {
-                tecla.classList.add('ativa');
-            }
 
-            if (evento.code === 'Enter') {
-                tecla.classList.add('ativa');
-            }
-        
-        
-        
-        
-        tecla.onkeyup = function() {
-            tecla.classList.remove('ativa')
-        }
-        
-        //substituimos o 0 por contador, para variar o índice e assim abranger todos os sons das teclas. também substituimos o numero 9 por listaDeTeclas.length, pois nem sempre saberemos o tamanhao de uma lista, ficando assim mais semantico
-
-        //contador = contador + 1; // 0 + 1 ; segundo loop 1 +1 = 2 < 9; terceiro loop 2 + 1 = 3 <  e assim por diante
-
-        console.log(contador)
     }
 
+    tecla.onkeyup = function () {
+        tecla.classList.remove('ativa');
+    }
+}
 
+//substituimos o 0 por contador, para variar o índice e assim abranger todos os sons das teclas. também substituimos o numero 9 por listaDeTeclas.length, pois nem sempre saberemos o tamanhao de uma lista, ficando assim mais semantico
 
-
+//contador = contador + 1; // 0 + 1 ; segundo loop 1 +1 = 2 < 9; terceiro loop 2 + 1 = 3 <  e assim por diante
 
 
 
 //desafio 06
 //for (var i = 0; i < 10 ; i ++) {
-    console.log(i);
+console.log(i);
 //}
 
 //const listaDeTeclas = document.querySelectorAll('input[type=button]');
@@ -100,10 +79,10 @@ const listaDeTeclas = document.querySelectorAll('.tecla');
 //const listaDeTeclas = document.querySelectorAll('input[type=button]');
 
 //for(indice = 0; indice < listaDeTeclas.length ; i++)
-  
-  //const tecla = listaDeTecla[indice];
 
-     /*  tecla.onekeyup = function(evento) {
+//const tecla = listaDeTecla[indice];
+
+/*  tecla.onekeyup = function(evento) {
         if (evento.code === "Enter" || evento.code ===          "Space") {tecla.classList.add('ativa');
                                                          }
 }
@@ -112,7 +91,7 @@ const listaDeTeclas = document.querySelectorAll('.tecla');
                                                                }
       } */
 
-      /* const aluraFone = { //Cria um objeto que contém o input de telefone e os inputs de botão.
+/* const aluraFone = { //Cria um objeto que contém o input de telefone e os inputs de botão.
         numero: document.querySelector('input[type="tel"]'), //Item "numero" que recebe o input onde o usuário irá pôr o seu telefone.
         teclas: document.querySelectorAll('input[type="button"]') //Item "teclas" que recebe todos os inputs de botão.
        };
